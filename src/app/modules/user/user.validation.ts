@@ -3,10 +3,14 @@ import { z } from 'zod';
 //body --> object
 //data --> object
 const createUserZodSchema = z.object({
-  role: z.string({
-    required_error: 'role is required',
+  body: z.object({
+    user: z.object({
+      role: z.string({
+        required_error: 'role is required',
+      }),
+      password: z.string().optional(),
+    }),
   }),
-  password: z.string().optional(),
 });
 // request body validation
 // await createUserZodSchema.parseAsync(req)
