@@ -20,10 +20,14 @@ export type IAcademicSemisterCodes = '01' | '02' | '03';
 // 1. Create an interface representing a document in MongoDB.
 export type IAcademicSemister = {
   title: IAcademicSemisterTitles;
-  year: number;
+  year: string;
   code: IAcademicSemisterCodes;
   startMonth: IAcademicSemisterMonths;
   endMonth: IAcademicSemisterMonths;
 };
 
 export type AcademicSemisterModel = Model<IAcademicSemister>;
+
+export type IAcademicSemisterFilters = {
+  searchTerm?: string;
+};

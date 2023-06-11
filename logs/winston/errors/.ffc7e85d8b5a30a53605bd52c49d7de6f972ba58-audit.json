@@ -179,6 +179,41 @@
             "date": 1686302751486,
             "name": "E:\\level-2\\university-managemnet-auth-service\\logs\\winston\\errors\\error-2023-09-06-15-error.log",
             "hash": "d916f78898ef3bb257243e5da12689b354cbaffdb236844af0c13842cef16d2b"
+        },
+        {
+            "date": 1686364467048,
+            "name": "E:\\level-2\\university-managemnet-auth-service\\logs\\winston\\errors\\error-2023-10-06-08-error.log",
+            "hash": "bdb5d051bf9e10959a602acbc745d376312e479d98954b920a9f29ff1126f3ef"
+        },
+        {
+            "date": 1686404415141,
+            "name": "E:\\level-2\\university-managemnet-auth-service\\logs\\winston\\errors\\error-2023-10-06-19-error.log",
+            "hash": "00ee29e0032f7b02eca51baac30b859e411d7646d244246e14734ac352d873dd"
+        },
+        {
+            "date": 1686406260776,
+            "name": "E:\\level-2\\university-managemnet-auth-service\\logs\\winston\\errors\\error-2023-10-06-20-error.log",
+            "hash": "ecf927c691679352256cc400e53461310537d9c189a07a468e8ed3aa01996ac6"
+        },
+        {
+            "date": 1686447049160,
+            "name": "E:\\level-2\\university-managemnet-auth-service\\logs\\winston\\errors\\error-2023-11-06-07-error.log",
+            "hash": "5d31ce9d0edbded193dec43ac5f4704fb642aa5686bd3b304e7454fa9dba727f"
+        },
+        {
+            "date": 1686450316994,
+            "name": "E:\\level-2\\university-managemnet-auth-service\\logs\\winston\\errors\\error-2023-11-06-08-error.log",
+            "hash": "5d21c5ece4f63647af7e24cd999f9fdc92de9f36a756bafcd926e3a928b7b07a"
+        },
+        {
+            "date": 1686454396584,
+            "name": "E:\\level-2\\university-managemnet-auth-service\\logs\\winston\\errors\\error-2023-11-06-09-error.log",
+            "hash": "d4e48645aed5d9e2300a0fb1049730e042f738038aba76f2df835e89dd98dfac"
+        },
+        {
+            "date": 1686456090193,
+            "name": "E:\\level-2\\university-managemnet-auth-service\\logs\\winston\\errors\\error-2023-11-06-10-error.log",
+            "hash": "ad4e08d8307185e4c68d47bd4c27ed01ec89b72b76c30a4c9d5ebed0a3f93182"
         }
     ],
     "hashType": "sha256"
