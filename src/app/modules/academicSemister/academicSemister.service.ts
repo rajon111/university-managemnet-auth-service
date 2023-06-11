@@ -118,8 +118,34 @@ const getSingleSemester = async (
   return result;
 };
 
+const updateSemister = async (
+  id: string,
+  payload: Partial<IAcademicSemister>
+): Promise<IAcademicSemister | null> => {
+  if (
+    payload.title &&
+    payload.code &&
+    AcademicSemisterTitleCodeMapper[payload.title] !== payload.code
+  ) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid Semister Code');
+  }
+  const result = await AcademicSemester.findOneAndUpdate({ _id: id }, payload, {
+    new: true,
+  });
+  return result;
+};
+
+const deleteSemister = async (
+  id: string
+): Promise<IAcademicSemister | null> => {
+  const result = await AcademicSemester.findByIdAndDelete(id);
+  return result;
+};
+
 export const AcademicSemisterService = {
   createSemister,
   getAllSemisters,
   getSingleSemester,
+  updateSemister,
+  deleteSemister,
 };
