@@ -1,7 +1,13 @@
 import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
-import { AcademicSemisterTitleCodeMapper } from './academicSemister.constant';
-import { IAcademicSemister } from './academicSemister.interface';
+import {
+  AcademicSemisterTitleCodeMapper,
+  academicSemisterSeachableFields,
+} from './academicSemister.constant';
+import {
+  IAcademicSemister,
+  IAcademicSemisterFilters,
+} from './academicSemister.interface';
 import { AcademicSemester } from './academicSemister.model';
 import { IPagenationOptions } from '../../../interfaces/pagination';
 import { IGenericResponse } from '../../../interfaces/common';
@@ -19,8 +25,64 @@ const createSemister = async (
 };
 
 const getAllSemisters = async (
+  filters: IAcademicSemisterFilters,
   pagenationOptions: IPagenationOptions
 ): Promise<IGenericResponse<IAcademicSemister[]>> => {
+  const { searchTerm, ...filtersdata } = filters;
+  // const andConditions = [
+  //   {
+  //     $or: [
+  //       {
+  //         title: {
+  //           $regex: searchTerm,
+  //           $options: 'i',
+  //         },
+  //       },
+  //       {
+  //         code: {
+  //           $regex: searchTerm,
+  //           $options: 'i',
+  //         },
+  //       },
+  //       {
+  //         year: {
+  //           $regex: searchTerm,
+  //           $options: 'i',
+  //         },
+  //       },
+  //     ],
+  //   },
+  // ];
+
+  const andConditions = [];
+
+  if (searchTerm) {
+    andConditions.push({
+      $or: academicSemisterSeachableFields.map(field => ({
+        [field]: {
+          $regex: searchTerm,
+          $options: 'i',
+        },
+      })),
+    });
+  }
+
+  if (Object.keys(filtersdata).length) {
+    andConditions.push({
+      $and: Object.entries(filtersdata).map(([field, value]) => ({
+        [field]: value,
+      })),
+    });
+  }
+
+  //filtersdata value gula object hiseb a ache tai Object.keys use kore arrey te covert kore nawa hoise
+  // if(Object.keys(filtersdata).length > 0) {
+  //   $and:[
+  //     {
+  //       title
+  //     }
+  //   ]
+  // }
   const { page, limit, skip, sortBy, sortOrder } =
     paginationHelpers.calculatePageination(pagenationOptions);
 
@@ -29,7 +91,10 @@ const getAllSemisters = async (
     sortConditions[sortBy] = sortOrder;
   }
 
-  const result = await AcademicSemester.find()
+  const whereCondition =
+    andConditions.length > 0 ? { $and: andConditions } : {};
+
+  const result = await AcademicSemester.find(whereCondition)
     .sort(sortConditions)
     .skip(skip)
     .limit(limit);
@@ -46,7 +111,15 @@ const getAllSemisters = async (
   };
 };
 
+const getSingleSemester = async (
+  id: string
+): Promise<IAcademicSemister | null> => {
+  const result = await AcademicSemester.findById(id);
+  return result;
+};
+
 export const AcademicSemisterService = {
   createSemister,
   getAllSemisters,
+  getSingleSemester,
 };
