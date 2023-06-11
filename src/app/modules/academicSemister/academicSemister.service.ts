@@ -9,7 +9,7 @@ import {
   IAcademicSemisterFilters,
 } from './academicSemister.interface';
 import { AcademicSemester } from './academicSemister.model';
-import { IPagenationOptions } from '../../../interfaces/pagination';
+import { IPaginationOptions } from '../../../interfaces/pagination';
 import { IGenericResponse } from '../../../interfaces/common';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { SortOrder } from 'mongoose';
@@ -26,7 +26,7 @@ const createSemister = async (
 
 const getAllSemisters = async (
   filters: IAcademicSemisterFilters,
-  pagenationOptions: IPagenationOptions
+  pagenationOptions: IPaginationOptions
 ): Promise<IGenericResponse<IAcademicSemister[]>> => {
   const { searchTerm, ...filtersdata } = filters;
   // const andConditions = [
@@ -84,7 +84,7 @@ const getAllSemisters = async (
   //   ]
   // }
   const { page, limit, skip, sortBy, sortOrder } =
-    paginationHelpers.calculatePageination(pagenationOptions);
+    paginationHelpers.calculatePagination(pagenationOptions);
 
   const sortConditions: { [key: string]: SortOrder } = {};
   if (sortBy && sortOrder) {
