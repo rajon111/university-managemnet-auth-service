@@ -20,6 +20,8 @@ const createFaculty = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+//checking
+
 export const AcademicFacultyController = {
   createFaculty,
 };
