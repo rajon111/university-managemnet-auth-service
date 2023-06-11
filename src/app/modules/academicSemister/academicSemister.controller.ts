@@ -15,10 +15,10 @@ const createSemister = catchAsync(
     res: Response
     // next: NextFunction
   ) => {
-    const { ...AcademicSemisterData } = req.body;
+    const { ...academicSemesterData } = req.body;
 
     const result = await AcademicSemisterService.createSemister(
-      AcademicSemisterData
+      academicSemesterData
     );
 
     sendResponse<IAcademicSemister>(res, {
@@ -89,6 +89,7 @@ const updateSemister = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
 const deleteSemister = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
 
