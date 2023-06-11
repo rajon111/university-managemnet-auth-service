@@ -264,6 +264,11 @@
             "date": 1686499208938,
             "name": "E:\\level-2\\university-managemnet-auth-service\\logs\\winston\\errors\\error-2023-11-06-22-error.log",
             "hash": "36cd2cbd2cf62af8cbbc7d00246b602ced12edc8b4067aea0586b1d46bed4240"
+        },
+        {
+            "date": 1686502970306,
+            "name": "E:\\level-2\\university-managemnet-auth-service\\logs\\winston\\errors\\error-2023-11-06-23-error.log",
+            "hash": "38cdcd84c67f79fad7e4cce5d9ed8751b903949a928c3693d8eb5577a3fd5581"
         }
     ],
     "hashType": "sha256"
