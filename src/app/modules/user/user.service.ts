@@ -2,11 +2,15 @@ import config from '../../../config/index';
 import ApiError from '../../../errors/ApiError';
 import { IUser } from './user.interface';
 import { User } from './user.model';
-import { generateUserId } from './user.utils';
+import { generateStudentId } from './user.utils';
 
 const createUser = async (user: IUser): Promise<IUser | null> => {
   //  AUTO GENERATED INCRIMENTAL ID
-  const id = await generateUserId();
+  const academicSemister = {
+    code: '01',
+    year: '2025',
+  };
+  const id = await generateStudentId(academicSemister);
   user.id = id;
 
   // DEFAULT PASSWORD

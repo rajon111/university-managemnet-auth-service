@@ -3,6 +3,7 @@ import cors from 'cors';
 import globalErrorHandler from './app/middlewares/globalErrorHandler';
 import routers from './app/routes';
 import httpStatus from 'http-status';
+import { generatefacultyId } from './app/modules/user/user.utils';
 
 const app: Application = express();
 
@@ -14,11 +15,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Application routes
 app.use('/api/v1', routers);
-
-// testing
-// app.get('/', async(req: Request, res: Response, next: NextFunction) => {
-//   throw new Error('Testing not implemented')
-// })
 
 // global errors handler
 app.use(globalErrorHandler);
@@ -38,4 +34,9 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
+const testId = async () => {
+  const generatedId = await generatefacultyId();
+  console.log(generatedId);
+};
+testId();
 export default app;
