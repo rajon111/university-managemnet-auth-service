@@ -1,8 +1,8 @@
 import express from 'express';
 // import { UserController } from './user.controller';
 import validateRequest from '../../middlewares/validateRequest';
-import { AceademicSemesterValidation } from './academicSemister.validation';
-import { AcademicSemisterController } from './academicSemister.controller';
+import { AceademicSemesterValidation } from './academicSemester.validation';
+import { AcademicSemisterController } from './academicSemester.controller';
 const router = express.Router();
 
 router.post(

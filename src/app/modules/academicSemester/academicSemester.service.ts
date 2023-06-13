@@ -3,20 +3,20 @@ import ApiError from '../../../errors/ApiError';
 import {
   AcademicSemisterTitleCodeMapper,
   academicSemisterSeachableFields,
-} from './academicSemister.constant';
+} from './academicSemester.constant';
 import {
-  IAcademicSemister,
-  IAcademicSemisterFilters,
-} from './academicSemister.interface';
-import { AcademicSemester } from './academicSemister.model';
+  IAcademicSemester,
+  IAcademicSemesterFilters,
+} from './academicSemester.interface';
+import { AcademicSemester } from './academicSemester.model';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import { IGenericResponse } from '../../../interfaces/common';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { SortOrder } from 'mongoose';
 
 const createSemister = async (
-  payload: IAcademicSemister
-): Promise<IAcademicSemister> => {
+  payload: IAcademicSemester
+): Promise<IAcademicSemester> => {
   if (AcademicSemisterTitleCodeMapper[payload.title] !== payload.code) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid Semister Code');
   }
@@ -25,9 +25,9 @@ const createSemister = async (
 };
 
 const getAllSemisters = async (
-  filters: IAcademicSemisterFilters,
+  filters: IAcademicSemesterFilters,
   pagenationOptions: IPaginationOptions
-): Promise<IGenericResponse<IAcademicSemister[]>> => {
+): Promise<IGenericResponse<IAcademicSemester[]>> => {
   const { searchTerm, ...filtersdata } = filters;
   // const andConditions = [
   //   {
@@ -113,15 +113,15 @@ const getAllSemisters = async (
 
 const getSingleSemester = async (
   id: string
-): Promise<IAcademicSemister | null> => {
+): Promise<IAcademicSemester | null> => {
   const result = await AcademicSemester.findById(id);
   return result;
 };
 
 const updateSemister = async (
   id: string,
-  payload: Partial<IAcademicSemister>
-): Promise<IAcademicSemister | null> => {
+  payload: Partial<IAcademicSemester>
+): Promise<IAcademicSemester | null> => {
   if (
     payload.title &&
     payload.code &&
@@ -137,7 +137,7 @@ const updateSemister = async (
 
 const deleteSemister = async (
   id: string
-): Promise<IAcademicSemister | null> => {
+): Promise<IAcademicSemester | null> => {
   const result = await AcademicSemester.findByIdAndDelete(id);
   return result;
 };

@@ -1,17 +1,17 @@
 import { Schema, model } from 'mongoose';
 import {
   AcademicSemisterModel,
-  IAcademicSemister,
-} from './academicSemister.interface';
+  IAcademicSemester,
+} from './academicSemester.interface';
 import {
   academicSemisterCodes,
   academicSemisterMonths,
   academicSemisterTitles,
-} from './academicSemister.constant';
+} from './academicSemester.constant';
 import ApiError from '../../../errors/ApiError';
 import httpStatus from 'http-status';
 
-const academicSemisterSchema = new Schema<IAcademicSemister>(
+const academicSemisterSchema = new Schema<IAcademicSemester>(
   {
     title: {
       type: String,
@@ -60,7 +60,7 @@ academicSemisterSchema.pre('save', async function (next) {
   next();
 });
 
-export const AcademicSemester = model<IAcademicSemister, AcademicSemisterModel>(
+export const AcademicSemester = model<IAcademicSemester, AcademicSemisterModel>(
   'AcademicSemister',
   academicSemisterSchema
 );

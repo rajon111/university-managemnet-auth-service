@@ -1,4 +1,4 @@
-import { IAcademicSemister } from '../academicSemister/academicSemister.interface';
+import { IAcademicSemester } from '../academicSemester/academicSemester.interface';
 import { User } from './user.model';
 
 export const findLastStudentId = async (): Promise<string | undefined> => {
@@ -15,7 +15,7 @@ export const findLastStudentId = async (): Promise<string | undefined> => {
 // stdent id demo: 230100001
 
 export const generateStudentId = async (
-  academicSemister: IAcademicSemister
+  academicSemister: IAcademicSemester
 ): Promise<string> => {
   const currentId =
     (await findLastStudentId()) || (0).toString().padStart(5, '0'); //00000
