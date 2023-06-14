@@ -1,13 +1,13 @@
 import httpStatus from 'http-status';
 
-import { AcademicSemisterService } from './academicSemister.service';
+import { AcademicSemisterService } from './academicSemester.service';
 import catchAsync from '../../../shared/catchAsync';
 import { Request, Response } from 'express';
 import sendResponse from '../../../shared/sendResponse';
-import { IAcademicSemister } from './academicSemister.interface';
+import { IAcademicSemester } from './academicSemester.interface';
 import pick from '../../../shared/pick';
 import { pagenationFields } from '../../../constants/pagenation';
-import { academicSemisterFilterableFields } from './academicSemister.constant';
+import { academicSemisterFilterableFields } from './academicSemester.constant';
 
 const createSemister = catchAsync(
   async (
@@ -21,7 +21,7 @@ const createSemister = catchAsync(
       academicSemesterData
     );
 
-    sendResponse<IAcademicSemister>(res, {
+    sendResponse<IAcademicSemester>(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: ' Academic semister Create Successfully',
@@ -51,7 +51,7 @@ const getAllSemisters = catchAsync(
       pagenationOptions
     );
 
-    sendResponse<IAcademicSemister[]>(res, {
+    sendResponse<IAcademicSemester[]>(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'Semister Retrived Successfully',
@@ -67,7 +67,7 @@ const getSingleSemester = catchAsync(async (req: Request, res: Response) => {
 
   const result = await AcademicSemisterService.getSingleSemester(id);
 
-  sendResponse<IAcademicSemister>(res, {
+  sendResponse<IAcademicSemester>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Semister Retrived Successfully',
@@ -82,7 +82,7 @@ const updateSemister = catchAsync(async (req: Request, res: Response) => {
 
   const result = await AcademicSemisterService.updateSemister(id, updatedData);
 
-  sendResponse<IAcademicSemister>(res, {
+  sendResponse<IAcademicSemester>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Semister Updated Successfully',
@@ -95,7 +95,7 @@ const deleteSemister = catchAsync(async (req: Request, res: Response) => {
 
   const result = await AcademicSemisterService.deleteSemister(id);
 
-  sendResponse<IAcademicSemister>(res, {
+  sendResponse<IAcademicSemester>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Semister Deleted Successfully',

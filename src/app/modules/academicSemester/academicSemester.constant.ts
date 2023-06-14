@@ -1,22 +1,22 @@
 import {
-  IAcademicSemisterCodes,
-  IAcademicSemisterMonths,
-  IAcademicSemisterTitles,
-} from './academicSemister.interface';
+  IAcademicSemesterCodes,
+  IAcademicSemesterMonths,
+  IAcademicSemesterTitles,
+} from './academicSemester.interface';
 
-export const academicSemisterTitles: IAcademicSemisterTitles[] = [
+export const academicSemisterTitles: IAcademicSemesterTitles[] = [
   'Autumn',
   'Summer',
   'Fall',
 ];
 
-export const academicSemisterCodes: IAcademicSemisterCodes[] = [
+export const academicSemisterCodes: IAcademicSemesterCodes[] = [
   '01',
   '02',
   '03',
 ];
 
-export const academicSemisterMonths: IAcademicSemisterMonths[] = [
+export const academicSemisterMonths: IAcademicSemesterMonths[] = [
   'January',
   'February',
   'March',

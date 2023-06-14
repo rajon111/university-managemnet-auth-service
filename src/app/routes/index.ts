@@ -1,6 +1,6 @@
 import express from 'express';
 import { UserRoutes } from '../modules/user/user.router';
-import { AcademicSemesterRoutes } from '../modules/academicSemister/academicSemister.route';
+import { AcademicSemesterRoutes } from '../modules/academicSemester/academicSemester.route';
 import { AcademicFacultyRoutes } from '../modules/academicFaculty/academicFaculty.route';
 import { academicDepartmentRoutes } from '../modules/academicDepartment/academicFaculty.route';
 
