@@ -24,7 +24,7 @@ const updateAdmin = z.object({
 
     permanentAddress: z.string().optional(),
 
-    // department: z.string().optional(),
+    department: z.string().optional(),
 
     designation: z.string().optional(),
 

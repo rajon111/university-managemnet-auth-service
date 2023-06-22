@@ -47,7 +47,7 @@ const getAllAdmins = async (
     andConditions.length > 0 ? { $and: andConditions } : {};
 
   const result = await Admin.find(whereConditions)
-    // .populate('managementDepartment')
+    .populate('managementDepartment')
     .sort(sortConditions)
     .skip(skip)
     .limit(limit);
@@ -65,8 +65,8 @@ const getAllAdmins = async (
 };
 
 const getSingleAdmin = async (id: string): Promise<IAdmin | null> => {
-  // const result = await Admin.findOne({ id }).populate('ManagementDepartment');
-  const result = await Admin.findOne({ id });
+  const result = await Admin.findOne({ id }).populate('ManagementDepartment');
+
   return result;
 };
 
@@ -116,7 +116,7 @@ const deleteAdmin = async (id: string): Promise<IAdmin | null> => {
     }
     //delete user
     await User.deleteOne({ id });
-    session.commitTransaction();
+    await session.commitTransaction();
     session.endSession();
 
     return student;

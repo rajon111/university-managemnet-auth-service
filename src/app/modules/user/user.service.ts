@@ -196,11 +196,11 @@ const createAdmin = async (
   if (newUserAllData) {
     newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
       path: 'admin',
-      // populate: [
-      //   {
-      //     path: 'managementDepartment',
-      //   },
-      // ],
+      populate: [
+        {
+          path: 'managementDepartment',
+        },
+      ],
     });
   }
 
