@@ -1,2 +1,0 @@
-Tue Jun 13 2023 23:45:39 [right meow!] error: Operation `users.findOne()` buffering timed out after 10000ms
-Tue Jun 13 2023 23:48:52 [right meow!] error: Operation `users.findOne()` buffering timed out after 10000ms
